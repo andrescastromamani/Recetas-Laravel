@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Recipe;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RecipeController extends Controller
 {
@@ -35,7 +36,11 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $recipe = request();
+        DB::table('recipes')->insert([
+            'title' => $recipe['title']
+        ]);
+        return redirect()->route('recipes.index');
     }
 
     /**

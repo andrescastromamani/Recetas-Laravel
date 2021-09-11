@@ -6,10 +6,11 @@
         <h2 class="text-center mt-3">Formulario de creacion</h2>
         <div class="row justify-content-center">
             <div class="col-12 col-md-6">
-                <form>
+                <form method="POST" action="{{route('recipes.store')}}">
+                    @csrf
                     <div class="mb-3">
                         <label for="title" class="form-label">Titulo</label>
-                        <input type="title" class="form-control" id="title" aria-describedby="title" placeholder="Titulo Receta">
+                        <input type="text" name="title" class="form-control" id="title" aria-describedby="title" placeholder="Titulo Receta">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
