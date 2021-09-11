@@ -10,7 +10,15 @@
                     @csrf
                     <div class="mb-3">
                         <label for="title" class="form-label">Titulo</label>
-                        <input type="text" name="title" class="form-control" id="title" aria-describedby="title" placeholder="Titulo Receta">
+                        <input type="text" name="title" class="form-control @error('title') is-invalid @enderror "
+                               id="title" aria-describedby="title"
+                               placeholder="Titulo Receta"
+                               value="{{old('title')}}">
+                        @error('title')
+                        <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
