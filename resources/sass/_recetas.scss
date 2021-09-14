@@ -5,7 +5,12 @@ body {
 .navbar-brand {
     font-family: $font-family-sans-serif;
     font-size: 2rem;
-    &:hover{
+
+    &:hover {
         color: #ffffff;
     }
+}
+
+trix-editor {
+    min-height: 400px;
 }

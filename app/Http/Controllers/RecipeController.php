@@ -45,7 +45,9 @@ class RecipeController extends Controller
     {
         $recipe = $request->validate([
             'title' => 'required|min:6',
-            'category' => 'required'
+            'category' => 'required',
+            'ingredients' => 'required',
+            'preparation' => 'required',
         ]);
         DB::table('recipes')->insert([
             'title' => $recipe['title']

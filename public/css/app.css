@@ -10013,3 +10013,7 @@ body {
 .navbar-brand:hover {
   color: #ffffff;
 }
+
+trix-editor {
+  min-height: 400px;
+}
