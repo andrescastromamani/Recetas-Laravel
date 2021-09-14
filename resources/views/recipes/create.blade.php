@@ -21,12 +21,20 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="title" class="form-label">Categorias</label>
-                        <select name="category" id="category" class="form-control">
+                        <label for="category" class="form-label">Categorias</label>
+                        <select name="category" id="category"
+                                class="form-control @error('category') is-invalid @enderror ">
+                            <option value="">-- Seleccione una Categoria --</option>
                             @foreach($categories as $category)
-                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                <option
+                                    value="{{$category->id}}" {{old('category')== $category->id ? 'selected':''}}>{{$category->name}}</option>
                             @endforeach
                         </select>
+                        @error('category')
+                        <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
