@@ -62,6 +62,15 @@
                         </span>
                         @enderror
                     </div>
+                    <div class="mb-3">
+                        <label for="preparation" class="form-label">Imagen</label>
+                        <input type="file" id="image" name="image" class="form-control @error('preparation') is-invalid @enderror">
+                        @error('image')
+                        <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
+                    </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
