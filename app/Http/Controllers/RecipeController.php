@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -30,7 +31,8 @@ class RecipeController extends Controller
      */
     public function create()
     {
-        return view('recipes.create');
+        $categories = Category::all();
+        return view('recipes.create', compact('categories'));
     }
 
     /**
@@ -42,7 +44,7 @@ class RecipeController extends Controller
     public function store(Request $request)
     {
         $recipe = $request->validate([
-            'title'=>'required|min:6'
+            'title' => 'required|min:6'
         ]);
         DB::table('recipes')->insert([
             'title' => $recipe['title']

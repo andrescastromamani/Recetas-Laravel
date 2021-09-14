@@ -20,6 +20,14 @@
                         </span>
                         @enderror
                     </div>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Categorias</label>
+                        <select name="category" id="category" class="form-control">
+                            @foreach($categories as $category)
+                                <option value="{{$category->id}}">{{$category->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
