@@ -10,7 +10,7 @@
         <h2 class="text-center mt-3">Formulario de creacion</h2>
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">
-                <form method="POST" action="{{route('recipes.store')}}">
+                <form method="POST" action="{{route('recipes.store')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                         <label for="title" class="form-label">Titulo</label>

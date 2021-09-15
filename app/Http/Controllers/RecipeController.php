@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class RecipeController extends Controller
 {
@@ -48,10 +51,18 @@ class RecipeController extends Controller
             'category' => 'required',
             'ingredients' => 'required',
             'preparation' => 'required',
-            'image' => 'required|image',
+            'image' => 'required',
         ]);
+        $fileRoutes = $request['image']->store('uploads', 'public');
+        $imageSize = Image::make(public_path("storage/{$fileRoutes}"))->fit(1000, 550);
+        $imageSize->save();
         DB::table('recipes')->insert([
-            'title' => $recipe['title']
+            'title' => $recipe['title'],
+            'ingredients' => $recipe['ingredients'],
+            'preparation' => $recipe['preparation'],
+            'image' => $fileRoutes,
+            'user_id' => Auth::user()->id,
+            'category_id' => $recipe['category'],
         ]);
         return redirect()->route('recipes.index');
     }
