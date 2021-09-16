@@ -57,13 +57,12 @@ class RecipeController extends Controller
         $fileRoutes = $request['image']->store('uploads', 'public');
         $imageSize = Image::make(public_path("storage/{$fileRoutes}"))->fit(1000, 550);
         $imageSize->save();
-        DB::table('recipes')->insert([
+        Auth::user()->recipes()->create([
             'title' => $recipe['title'],
             'ingredients' => $recipe['ingredients'],
             'preparation' => $recipe['preparation'],
             'image' => $fileRoutes,
-            'user_id' => Auth::user()->id,
-            'category_id' => $recipe['category'],
+            'category_id' => $recipe['category']
         ]);
         return redirect()->route('recipes.index');
     }
@@ -76,7 +75,7 @@ class RecipeController extends Controller
      */
     public function show(Recipe $recipe)
     {
-        //
+        return view('recipes.show',compact('recipe'));
     }
 
     /**

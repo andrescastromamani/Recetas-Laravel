@@ -22,7 +22,7 @@
                             <td>
                                 <a href="" class="btn btn-danger">Eliminar</a>
                                 <a href="" class="btn btn-warning">Editar</a>
-                                <a href="" class="btn btn-success">Ver</a>
+                                <a href="{{route('recipes.show')}}" class="btn btn-success">Ver</a>
                             </td>
                         </tr>
                     @endforeach
