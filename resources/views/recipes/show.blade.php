@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="container">
-        {{$recipe}}
         <article>
             <h1 class="text-center mt-3">{{$recipe->title}}</h1>
             <div>
@@ -14,6 +13,13 @@
                 </p>
                 <p>
                     <span class="font-weight-bold text-primary">Autor: </span>{{$recipe->user->name}}
+                </p>
+                <p>
+                    <span class="font-weight-bold text-primary">Fecha: </span>
+                    @php
+                        $d = $recipe->created_at;
+                    @endphp
+                    <date-recipe date="{{$d}}"></date-recipe>
                 </p>
             </div>
             <div>
@@ -27,3 +33,10 @@
         </article>
     </div>
 @endsection
+<script>
+    import DateRecipe from "../../js/components/DateRecipe";
+
+    export default {
+        components: {DateRecipe}
+    }
+</script>
