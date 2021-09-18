@@ -2104,6 +2104,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js"
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
+Vue.config.ignoredElements = ['trix-editor', 'trix-toolbar'];
 Vue.component('date-recipe', __webpack_require__(/*! ./components/DateRecipe.vue */ "./resources/js/components/DateRecipe.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
