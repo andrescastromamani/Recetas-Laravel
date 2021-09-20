@@ -87,7 +87,7 @@ class RecipeController extends Controller
     public function edit(Recipe $recipe)
     {
         $categories = Category::all();
-        return view('recipes.edit', compact('categories'));
+        return view('recipes.edit', compact('categories','recipe'));
     }
 
     /**

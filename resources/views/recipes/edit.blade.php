@@ -7,7 +7,7 @@
 @section('content')
     <div class="container">
         <a href="{{route('recipes.index')}}" class="btn btn-dark">Inicio</a>
-        <h2 class="text-center mt-3">Editar Receta</h2>
+        <h2 class="text-center mt-3">Editar Receta: {{$recipe->title}}</h2>
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">
                 <form method="POST" action="{{route('recipes.store')}}" enctype="multipart/form-data">
@@ -17,7 +17,7 @@
                         <input type="text" name="title" class="form-control @error('title') is-invalid @enderror "
                                id="title" aria-describedby="title"
                                placeholder="Titulo Receta"
-                               value="{{old('title')}}">
+                               value="{{$recipe->title}}">
                         @error('title')
                         <span class="invalid-feedback d-block" role="alert">
                                 <strong>{{$message}}</strong>
@@ -31,7 +31,7 @@
                             <option value="">-- Seleccione una Categoria --</option>
                             @foreach($categories as $category)
                                 <option
-                                    value="{{$category->id}}" {{old('category')== $category->id ? 'selected':''}}>{{$category->name}}</option>
+                                    value="{{$category->id}}" {{$recipe->category_id== $category->id ? 'selected':''}}>{{$category->name}}</option>
                             @endforeach
                         </select>
                         @error('category')
@@ -42,7 +42,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="ingredients" class="form-label">Ingredientes</label>
-                        <input type="hidden" id="ingredients" name="ingredients" value="{{old('ingredients')}}">
+                        <input type="hidden" id="ingredients" name="ingredients" value="{{$recipe->ingredients}}">
                         <trix-editor class="form-control @error('ingredients') is-invalid @enderror "
                                      input="ingredients"></trix-editor>
                         @error('ingredients')
@@ -53,7 +53,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="preparation" class="form-label">Preparación</label>
-                        <input type="hidden" id="preparation" name="preparation" value="{{old('preparation')}}">
+                        <input type="hidden" id="preparation" name="preparation" value="{{$recipe->preparation}}">
                         <trix-editor class="form-control @error('preparation') is-invalid @enderror"
                                      input="preparation"></trix-editor>
                         @error('preparation')
@@ -64,7 +64,12 @@
                     </div>
                     <div class="mb-3">
                         <label for="preparation" class="form-label">Imagen</label>
-                        <input type="file" id="image" name="image" class="form-control @error('preparation') is-invalid @enderror">
+                        <input type="file" id="image" name="image"
+                               class="form-control @error('preparation') is-invalid @enderror">
+                        <div class="mt-3">
+                            <p>Imagen Actual:</p>
+                            <img src="/storage/{{$recipe->image}}" alt="" style="width: 300px">
+                        </div>
                         @error('image')
                         <span class="invalid-feedback d-block" role="alert">
                                 <strong>{{$message}}</strong>
