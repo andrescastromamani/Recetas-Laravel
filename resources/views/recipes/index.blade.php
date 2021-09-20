@@ -21,7 +21,7 @@
                             <td>{{$recipe->category->name}}</td>
                             <td>
                                 <a href="" class="btn btn-danger mr-2 ml-2 float-right">Eliminar</a>
-                                <a href="" class="btn btn-warning mr-2 ml-2 float-right">Editar</a>
+                                <a href="{{route('recipes.edit', $recipe)}}" class="btn btn-warning mr-2 ml-2 float-right">Editar</a>
                                 <a href="{{route('recipes.show', $recipe)}}" class="btn btn-success mr-2 ml-2 float-right">Ver</a>
                             </td>
                         </tr>

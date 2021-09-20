@@ -75,7 +75,7 @@ class RecipeController extends Controller
      */
     public function show(Recipe $recipe)
     {
-        return view('recipes.show',compact('recipe'));
+        return view('recipes.show', compact('recipe'));
     }
 
     /**
@@ -86,7 +86,8 @@ class RecipeController extends Controller
      */
     public function edit(Recipe $recipe)
     {
-        //
+        $categories = Category::all();
+        return view('recipes.edit', compact('categories'));
     }
 
     /**
