@@ -20,9 +20,15 @@
                             <td>{{$recipe->title}}</td>
                             <td>{{$recipe->category->name}}</td>
                             <td>
-                                <a href="" class="btn btn-danger mr-2 ml-2 float-right">Eliminar</a>
-                                <a href="{{route('recipes.edit', $recipe)}}" class="btn btn-warning mr-2 ml-2 float-right">Editar</a>
-                                <a href="{{route('recipes.show', $recipe)}}" class="btn btn-success mr-2 ml-2 float-right">Ver</a>
+                                <form action="{{route('recipes.destroy', $recipe)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="submit" value="Eliminar" class="btn btn-danger float-right">
+                                </form>
+                                <a href="{{route('recipes.edit', $recipe)}}"
+                                   class="btn btn-warning mr-2 ml-2 float-right">Editar</a>
+                                <a href="{{route('recipes.show', $recipe)}}"
+                                   class="btn btn-success mr-2 ml-2 float-right">Ver</a>
                             </td>
                         </tr>
                     @endforeach
