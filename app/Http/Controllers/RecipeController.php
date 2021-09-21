@@ -99,6 +99,7 @@ class RecipeController extends Controller
      */
     public function update(Request $request, Recipe $recipe)
     {
+        $this->authorize('update', $recipe);
         $data = $request->validate([
             'title' => 'required|min:6',
             'category' => 'required',
