@@ -87,7 +87,7 @@ class RecipeController extends Controller
     public function edit(Recipe $recipe)
     {
         $categories = Category::all();
-        return view('recipes.edit', compact('categories','recipe'));
+        return view('recipes.edit', compact('categories', 'recipe'));
     }
 
     /**
@@ -99,7 +99,24 @@ class RecipeController extends Controller
      */
     public function update(Request $request, Recipe $recipe)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required|min:6',
+            'category' => 'required',
+            'ingredients' => 'required',
+            'preparation' => 'required',
+        ]);
+        $recipe->title = $data['title'];
+        $recipe->ingredients = $data['ingredients'];
+        $recipe->preparation = $data['preparation'];
+        $recipe->category_id = $data['category'];
+        if (request('image')) {
+            $fileRoutes = $request['image']->store('uploads', 'public');
+            $imageSize = Image::make(public_path("storage/{$fileRoutes}"))->fit(1000, 550);
+            $imageSize->save();
+            $recipe->image = $fileRoutes;
+        }
+        $recipe->save();
+        return redirect()->route('recipes.index');
     }
 
     /**

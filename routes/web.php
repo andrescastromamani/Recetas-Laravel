@@ -22,6 +22,7 @@ Route::get('/recetas/crear', [RecipeController::class, 'create'])->name('recipes
 Route::post('/recetas', [RecipeController::class, 'store'])->name('recipes.store');
 Route::get('/recetas/{recipe}', [RecipeController::class, 'show'])->name('recipes.show');
 Route::get('/recetas/{recipe}/edit', [RecipeController::class, 'edit'])->name('recipes.edit');
+Route::put('/recetas/{recipe}', [RecipeController::class, 'update'])->name('recipes.update');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

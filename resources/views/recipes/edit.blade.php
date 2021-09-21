@@ -10,8 +10,9 @@
         <h2 class="text-center mt-3">Editar Receta: {{$recipe->title}}</h2>
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">
-                <form method="POST" action="{{route('recipes.store')}}" enctype="multipart/form-data">
+                <form method="POST" action="{{route('recipes.update', $recipe->id)}}" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="mb-3">
                         <label for="title" class="form-label">Titulo</label>
                         <input type="text" name="title" class="form-control @error('title') is-invalid @enderror "
