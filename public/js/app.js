@@ -2110,7 +2110,24 @@ __webpack_require__.r(__webpack_exports__);
         cancelButtonText: 'No'
       }).then(function (result) {
         if (result.isConfirmed) {
-          _this.$swal('Eliminado!', 'Eliminado con Exito', 'success');
+          var params = {
+            id: _this.recipeId
+          };
+          axios.post("/recetas/".concat(_this.recipeId), {
+            params: params,
+            _method: 'DELETE'
+          }).then(function (response) {
+            _this.$swal({
+              title: 'Eliminado!',
+              text: 'Eliminado con exito',
+              icon: 'success'
+            }); //Delete of the DOM
+
+
+            _this.$el.parentNode.parentNode.parentNode.removeChild(_this.$el.parentNode.parentNode);
+          })["catch"](function (error) {
+            console.log(error);
+          });
         }
       });
     }

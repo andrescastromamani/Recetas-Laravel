@@ -17,11 +17,22 @@ export default {
                 cancelButtonText: 'No',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    this.$swal(
-                        'Eliminado!',
-                        'Eliminado con Exito',
-                        'success'
-                    )
+                    const params = {
+                        id: this.recipeId,
+                    }
+                    axios.post(`/recetas/${this.recipeId}`, {params, _method: 'DELETE'})
+                        .then(response => {
+                            this.$swal({
+                                title: 'Eliminado!',
+                                text: 'Eliminado con exito',
+                                icon: 'success'
+                            })
+                            //Delete of the DOM
+                            this.$el.parentNode.parentNode.parentNode.removeChild(this.$el.parentNode.parentNode);
+                        })
+                        .catch(error => {
+                            console.log(error)
+                        })
                 }
             })
         }
