@@ -20,11 +20,7 @@
                             <td>{{$recipe->title}}</td>
                             <td>{{$recipe->category->name}}</td>
                             <td>
-                                <form action="{{route('recipes.destroy', $recipe)}}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <input type="submit" value="Eliminar" class="btn btn-danger float-right">
-                                </form>
+                                <delete-recipe recipe-id={{$recipe->id}}></delete-recipe>
                                 <a href="{{route('recipes.edit', $recipe)}}"
                                    class="btn btn-warning mr-2 ml-2 float-right">Editar</a>
                                 <a href="{{route('recipes.show', $recipe)}}"

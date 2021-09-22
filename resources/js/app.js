@@ -22,6 +22,7 @@ window.Vue = require('vue').default;
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.config.ignoredElements = ['trix-editor', 'trix-toolbar'];
 Vue.component('date-recipe', require('./components/DateRecipe.vue').default);
+Vue.component('delete-recipe', require('./components/DeleteRecipe.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
