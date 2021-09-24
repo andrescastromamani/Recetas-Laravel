@@ -7,11 +7,10 @@
 
 @section('content')
     <div class="container">
-        {{$profile}}
         <h1 class="text-center">Tu Perfil</h1>
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">
-                <form method="POST" enctype="multipart/form-data">
+                <form method="POST" action="{{route('profiles.update', $profile->id)}}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="mb-3">
@@ -27,8 +26,20 @@
                         @enderror
                     </div>
                     <div class="mb-3">
+                        <label for="url" class="form-label">Sitio Web</label>
+                        <input type="text" name="url" class="form-control @error('url') is-invalid @enderror "
+                               id="url" aria-describedby="url"
+                               placeholder="Nombre..."
+                               value="{{$profile->user->url}}">
+                        @error('url')
+                        <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
                         <label for="biography" class="form-label">Biografia</label>
-                        <input type="hidden" id="biography" name="biography">
+                        <input type="hidden" id="biography" name="biography" value="{{$profile->biography}}">
                         <trix-editor class="form-control @error('biography') is-invalid @enderror "
                                      input="biography"></trix-editor>
                         @error('biography')
@@ -44,7 +55,7 @@
                         @if ($profile->image)
                             <div class="mt-3">
                                 <p>Imagen Actual:</p>
-                                <img alt="" style="width: 300px">
+                                <img src="/storage/{{$profile->image}}" style="width: 300px">
                             </div>
                         @endif
                         @error('image')
