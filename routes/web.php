@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,8 @@ Route::get('/recetas/{recipe}', [RecipeController::class, 'show'])->name('recipe
 Route::get('/recetas/{recipe}/edit', [RecipeController::class, 'edit'])->name('recipes.edit');
 Route::put('/recetas/{recipe}', [RecipeController::class, 'update'])->name('recipes.update');
 Route::delete('/recetas/{recipe}', [RecipeController::class, 'destroy'])->name('recipes.destroy');
+
+Route::get('/perfiles/{profile}', [ProfileController::class, 'show'])->name('profiles.show');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

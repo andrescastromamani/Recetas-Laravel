@@ -30,7 +30,7 @@ class ProfileController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -41,18 +41,18 @@ class ProfileController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Profile  $profile
+     * @param \App\Models\Profile $profile
      * @return \Illuminate\Http\Response
      */
     public function show(Profile $profile)
     {
-        //
+        return view('profiles.show', compact('profile'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Profile  $profile
+     * @param \App\Models\Profile $profile
      * @return \Illuminate\Http\Response
      */
     public function edit(Profile $profile)
@@ -63,8 +63,8 @@ class ProfileController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Profile  $profile
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Profile $profile
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Profile $profile)
@@ -75,7 +75,7 @@ class ProfileController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Profile  $profile
+     * @param \App\Models\Profile $profile
      * @return \Illuminate\Http\Response
      */
     public function destroy(Profile $profile)
