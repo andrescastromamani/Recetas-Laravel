@@ -6,11 +6,18 @@
 @endsection
 @section('content')
     <div class="container">
-        <a href="{{route('recipes.index')}}" class="btn btn-dark">Inicio</a>
+        <a href="{{route('recipes.index')}}" class="btn btn-dark">
+            <svg class="w-6 h-6 icon-profile" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+            </svg>
+            Inicio
+        </a>
         <h2 class="text-center mt-3">Formulario de creacion</h2>
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">
-                <form method="POST" action="{{route('recipes.store')}}" enctype="multipart/form-data" autocomplete="off">
+                <form method="POST" action="{{route('recipes.store')}}" enctype="multipart/form-data"
+                      autocomplete="off">
                     @csrf
                     <div class="mb-3">
                         <label for="title" class="form-label">Titulo</label>
@@ -64,7 +71,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="preparation" class="form-label">Imagen</label>
-                        <input type="file" id="image" name="image" class="form-control @error('preparation') is-invalid @enderror">
+                        <input type="file" id="image" name="image"
+                               class="form-control @error('preparation') is-invalid @enderror">
                         @error('image')
                         <span class="invalid-feedback d-block" role="alert">
                                 <strong>{{$message}}</strong>
