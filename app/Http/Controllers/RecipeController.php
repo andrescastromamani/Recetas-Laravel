@@ -24,7 +24,8 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        $recipes = Auth::user()->recipes;
+        $user = Auth::user()->id;
+        $recipes = Recipe::where('user_id', $user)->paginate(2);
         return view('recipes.index', compact('recipes'));
     }
 
@@ -86,6 +87,7 @@ class RecipeController extends Controller
      */
     public function edit(Recipe $recipe)
     {
+        $this->authorize('view', $recipe);
         $categories = Category::all();
         return view('recipes.edit', compact('categories', 'recipe'));
     }

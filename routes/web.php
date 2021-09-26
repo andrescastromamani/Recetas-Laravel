@@ -26,6 +26,7 @@ Route::get('/recetas/{recipe}/edit', [RecipeController::class, 'edit'])->name('r
 Route::put('/recetas/{recipe}', [RecipeController::class, 'update'])->name('recipes.update');
 Route::delete('/recetas/{recipe}', [RecipeController::class, 'destroy'])->name('recipes.destroy');
 
+//Route::resource('recetas', RecipeController::class);
 Route::get('/perfiles/{profile}', [ProfileController::class, 'show'])->name('profiles.show');
 Route::get('/perfiles/{profile}/edit', [ProfileController::class, 'edit'])->name('profiles.edit');
 Route::put('/perfiles/{profile}', [ProfileController::class, 'update'])->name('profiles.update');
