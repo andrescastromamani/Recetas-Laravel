@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Profile;
+use App\Models\Recipe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
@@ -53,7 +54,8 @@ class ProfileController extends Controller
      */
     public function show(Profile $profile)
     {
-        return view('profiles.show', compact('profile'));
+        $recipes = Recipe::where('user_id', $profile->user_id)->paginate(5);
+        return view('profiles.show', compact('profile', 'recipes'));
     }
 
     /**
