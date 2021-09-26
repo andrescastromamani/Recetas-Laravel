@@ -9,6 +9,11 @@ use Intervention\Image\Facades\Image;
 
 class ProfileController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('show');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -59,6 +64,7 @@ class ProfileController extends Controller
      */
     public function edit(Profile $profile)
     {
+        $this->authorize('update', $profile);
         return view('profiles.edit', compact('profile'));
     }
 
@@ -71,6 +77,7 @@ class ProfileController extends Controller
      */
     public function update(Request $request, Profile $profile)
     {
+        $this->authorize('update', $profile);
         $data = request()->validate([
             'name' => 'required',
             'url' => 'required',
