@@ -54,7 +54,7 @@ class ProfileController extends Controller
      */
     public function show(Profile $profile)
     {
-        $recipes = Recipe::where('user_id', $profile->user_id)->paginate(5);
+        $recipes = Recipe::where('user_id', $profile->user_id)->paginate(10);
         return view('profiles.show', compact('profile', 'recipes'));
     }
 

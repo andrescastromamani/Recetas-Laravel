@@ -2173,6 +2173,7 @@ Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_0___default()));
 Vue.config.ignoredElements = ['trix-editor', 'trix-toolbar'];
 Vue.component('date-recipe', __webpack_require__(/*! ./components/DateRecipe.vue */ "./resources/js/components/DateRecipe.vue")["default"]);
 Vue.component('delete-recipe', __webpack_require__(/*! ./components/DeleteRecipe.vue */ "./resources/js/components/DeleteRecipe.vue")["default"]);
+Vue.component('like-icon', __webpack_require__(/*! ./components/LikeIcon.vue */ "./resources/js/components/LikeIcon.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -2181,6 +2182,9 @@ Vue.component('delete-recipe', __webpack_require__(/*! ./components/DeleteRecipe
 
 var app = new Vue({
   el: '#app'
+});
+$('.like-btn').on('click', function () {
+  $(this).toggleClass('like-active');
 });
 
 /***/ }),
@@ -59536,6 +59540,43 @@ component.options.__file = "resources/js/components/DeleteRecipe.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/LikeIcon.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/components/LikeIcon.vue ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _LikeIcon_vue_vue_type_template_id_47020bca___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LikeIcon.vue?vue&type=template&id=47020bca& */ "./resources/js/components/LikeIcon.vue?vue&type=template&id=47020bca&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _LikeIcon_vue_vue_type_template_id_47020bca___WEBPACK_IMPORTED_MODULE_0__.render,
+  _LikeIcon_vue_vue_type_template_id_47020bca___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/LikeIcon.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/DateRecipe.vue?vue&type=script&lang=js&":
 /*!*************************************************************************!*\
   !*** ./resources/js/components/DateRecipe.vue?vue&type=script&lang=js& ***!
@@ -59602,6 +59643,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/LikeIcon.vue?vue&type=template&id=47020bca&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/LikeIcon.vue?vue&type=template&id=47020bca& ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LikeIcon_vue_vue_type_template_id_47020bca___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LikeIcon_vue_vue_type_template_id_47020bca___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LikeIcon_vue_vue_type_template_id_47020bca___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./LikeIcon.vue?vue&type=template&id=47020bca& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LikeIcon.vue?vue&type=template&id=47020bca&");
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DateRecipe.vue?vue&type=template&id=7afbd4f2&":
 /*!**********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DateRecipe.vue?vue&type=template&id=7afbd4f2& ***!
@@ -59650,6 +59708,38 @@ var render = function() {
   })
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LikeIcon.vue?vue&type=template&id=47020bca&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LikeIcon.vue?vue&type=template&id=47020bca& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [_c("span", { staticClass: "like-btn" })])
+  }
+]
 render._withStripped = true
 
 

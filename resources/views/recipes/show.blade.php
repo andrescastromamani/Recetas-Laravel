@@ -30,6 +30,7 @@
                 <h2 class="text-primary mt-3">Preparacion</h2>
                 {!! $recipe->preparation !!}
             </div>
+            <like-icon></like-icon>
         </article>
     </div>
 @endsection

@@ -26,6 +26,7 @@ Vue.use(VueSweetalert2);
 Vue.config.ignoredElements = ['trix-editor', 'trix-toolbar'];
 Vue.component('date-recipe', require('./components/DateRecipe.vue').default);
 Vue.component('delete-recipe', require('./components/DeleteRecipe.vue').default);
+Vue.component('like-icon', require('./components/LikeIcon.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -35,3 +36,8 @@ Vue.component('delete-recipe', require('./components/DeleteRecipe.vue').default)
 const app = new Vue({
     el: '#app',
 });
+
+$('.like-btn').on('click', function () {
+    $(this).toggleClass('like-active');
+});
+
