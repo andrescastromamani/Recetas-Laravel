@@ -26,4 +26,9 @@ class Recipe extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function likeuser()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }
