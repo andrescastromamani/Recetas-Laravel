@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RecipeUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,9 @@ Route::delete('/recetas/{recipe}', [RecipeController::class, 'destroy'])->name('
 Route::get('/perfiles/{profile}', [ProfileController::class, 'show'])->name('profiles.show');
 Route::get('/perfiles/{profile}/edit', [ProfileController::class, 'edit'])->name('profiles.edit');
 Route::put('/perfiles/{profile}', [ProfileController::class, 'update'])->name('profiles.update');
+
+Route::post('/recetas/{recipe}', [RecipeUserController::class, 'update'])->name('recipeuser.update');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
