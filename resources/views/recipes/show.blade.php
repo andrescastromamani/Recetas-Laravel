@@ -30,7 +30,7 @@
                 <h2 class="text-primary mt-3">Preparacion</h2>
                 {!! $recipe->preparation !!}
             </div>
-            <like-icon recipe-id="{{$recipe->id}}"></like-icon>
+            <like-icon recipe-id="{{$recipe->id}}" like="{{$like}}"></like-icon>
         </article>
     </div>
 @endsection

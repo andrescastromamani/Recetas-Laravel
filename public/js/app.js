@@ -2153,7 +2153,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['recipeId'],
+  props: ['recipeId', 'like'],
   methods: {
     likeRecipe: function likeRecipe() {
       axios.post('/recetas/' + this.recipeId).then(function (response) {
@@ -59780,7 +59780,11 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("span", { staticClass: "like-btn", on: { click: _vm.likeRecipe } })
+    _c("span", {
+      staticClass: "like-btn",
+      class: { "like-active": this.like },
+      on: { click: _vm.likeRecipe }
+    })
   ])
 }
 var staticRenderFns = []

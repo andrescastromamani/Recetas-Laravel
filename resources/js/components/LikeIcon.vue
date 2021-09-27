@@ -1,11 +1,11 @@
 <template>
     <div>
-        <span class="like-btn" @click="likeRecipe"></span>
+        <span class="like-btn" @click="likeRecipe" :class="{'like-active':this.like}"></span>
     </div>
 </template>
 <script>
 export default {
-    props: ['recipeId'],
+    props: ['recipeId', 'like'],
     methods: {
         likeRecipe() {
             axios.post('/recetas/' + this.recipeId)
