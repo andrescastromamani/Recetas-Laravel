@@ -2157,6 +2157,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['recipeId', 'like', 'likes'],
   data: function data() {
     return {
+      isActive: this.like,
       totallikes: this.likes
     };
   },
@@ -2170,8 +2171,12 @@ __webpack_require__.r(__webpack_exports__);
         } else {
           _this.$data.totallikes--;
         }
+
+        _this.isActive = !_this.isActive;
       })["catch"](function (error) {
-        console.log(error);
+        if (error.response.status === 401) {
+          window.location = '/register';
+        }
       });
     }
   },
@@ -59799,7 +59804,7 @@ var render = function() {
   return _c("div", [
     _c("span", {
       staticClass: "like-btn",
-      class: { "like-active": this.like },
+      class: { "like-active": _vm.isActive },
       on: { click: _vm.likeRecipe }
     }),
     _vm._v(" "),
