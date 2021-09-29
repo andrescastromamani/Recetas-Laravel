@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Recipe;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -26,7 +27,8 @@ class RecipeController extends Controller
     {
         $user = Auth::user()->id;
         $recipes = Recipe::where('user_id', $user)->paginate(2);
-        return view('recipes.index', compact('recipes'));
+        $userlikes = auth()->user()->likerecipe;
+        return view('recipes.index', compact('recipes', 'userlikes'));
     }
 
     /**
@@ -76,9 +78,9 @@ class RecipeController extends Controller
      */
     public function show(Recipe $recipe)
     {
-        $like = (auth()->user()) ? auth()->user()->likerecipe->contains($recipe->id):false;
+        $like = (auth()->user()) ? auth()->user()->likerecipe->contains($recipe->id) : false;
         $likes = $recipe->likeuser()->count();
-        return view('recipes.show', compact('recipe', 'like','likes'));
+        return view('recipes.show', compact('recipe', 'like', 'likes'));
     }
 
     /**
