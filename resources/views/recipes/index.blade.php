@@ -43,7 +43,7 @@
         {{$recipes->links()}}
         <h2 class="text-center">Recetas que te Gustan</h2>
         <div class="row">
-            <div class="col-md-8 bg-white text-center">
+            <div class="col bg-white text-center">
                 @if (count($userlikes)>0)
                     <ul class="list-group">
                         @foreach($userlikes as $userlike)

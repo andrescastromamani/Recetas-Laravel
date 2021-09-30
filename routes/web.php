@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecipeUserController;
+use App\Http\Controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,7 @@ use App\Http\Controllers\RecipeUserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [IndexController::class, 'index']);
 Route::get('/recetas', [RecipeController::class, 'index'])->name('recipes.index');
 Route::get('/recetas/crear', [RecipeController::class, 'create'])->name('recipes.create');
 Route::post('/recetas', [RecipeController::class, 'store'])->name('recipes.store');
@@ -36,4 +35,4 @@ Route::post('/recetas/{recipe}', [RecipeUserController::class, 'update'])->name(
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
