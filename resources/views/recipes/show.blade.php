@@ -4,11 +4,11 @@
     <div class="container">
         <article>
             <h1 class="text-center mt-3">{{$recipe->title}}</h1>
-            <div>
-                <img src="/storage/{{$recipe->image}}" alt="">
+            <div class="mt-3">
+                <img class="w-100" src="/storage/{{$recipe->image}}" alt="">
             </div>
             <div>
-                <p>
+                <p class="mt-3">
                     <span class="font-weight-bold text-primary">Categoria: </span>{{$recipe->category->name}}
                 </p>
                 <p>

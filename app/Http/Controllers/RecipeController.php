@@ -26,7 +26,7 @@ class RecipeController extends Controller
     public function index()
     {
         $user = Auth::user()->id;
-        $recipes = Recipe::where('user_id', $user)->paginate(2);
+        $recipes = Recipe::where('user_id', $user)->paginate(7);
         $userlikes = auth()->user()->likerecipe;
         return view('recipes.index', compact('recipes', 'userlikes'));
     }

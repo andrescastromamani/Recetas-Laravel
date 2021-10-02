@@ -17,9 +17,9 @@
                 <table class="table table-active table-hover">
                     <thead>
                     <tr>
-                        <th scope="col">Titulo</th>
-                        <th scope="col">Categoria</th>
-                        <th scope="col">Acciones</th>
+                        <th scope="col" class="">Titulo</th>
+                        <th scope="col" class="">Categoria</th>
+                        <th scope="col" class="text-center">Acciones</th>
                     </tr>
                     </thead>
                     <tbody>
