@@ -17,11 +17,33 @@
                         <div class="card-body">
                             <h5 class="card-title">{{Str::title($latestrecipe->title)}}</h5>
                             <p class="card-text">{{Str::words(strip_tags($latestrecipe->preparation),15)}}</p>
-                            <a href="{{route('recipes.show', $latestrecipe->id)}}" class="btn btn-outline-info d-block">Ver Receta</a>
+                            <a href="{{route('recipes.show', $latestrecipe->id)}}" class="btn btn-outline-info d-block">Ver
+                                Receta</a>
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
+        @foreach($recipes as $key => $group)
+            <h2 class="text-uppercase">{{str_replace('-',' ',$key)}}</h2>
+            <div class="row">
+                @foreach($group as $recipes)
+                    @foreach($recipes as $recipe)
+                        <div class="col-md-3 m-3">
+                            <div class="card" style="width: 18rem;">
+                                <img src="/storage/{{$recipe->image}}" class="card-img-top" alt="image recipe">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">{{$recipe->title}}</h5>
+                                    <p class="card-text text-center">Some quick example text to build on the card title
+                                        and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-outline-info d-block">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                @endforeach
+            </div>
+        @endforeach
     </div>
 @endsection
