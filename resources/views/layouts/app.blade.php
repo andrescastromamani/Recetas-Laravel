@@ -125,7 +125,7 @@
                     @foreach($categories as $category)
                         <li class="nav-item">
                             <a class="nav-link font-weight-bold text-uppercase" aria-current="page"
-                               href="#">{{$category->name}}</a>
+                               href="{{route('categories.show', $category->id)}}">{{$category->name}}</a>
                         </li>
                     @endforeach
                 </ul>

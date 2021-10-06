@@ -5,6 +5,7 @@ use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecipeUserController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,8 @@ Route::put('/recetas/{recipe}', [RecipeController::class, 'update'])->name('reci
 Route::delete('/recetas/{recipe}', [RecipeController::class, 'destroy'])->name('recipes.destroy');
 
 //Route::resource('recetas', RecipeController::class);
+Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
+
 Route::get('/perfiles/{profile}', [ProfileController::class, 'show'])->name('profiles.show');
 Route::get('/perfiles/{profile}/edit', [ProfileController::class, 'edit'])->name('profiles.edit');
 Route::put('/perfiles/{profile}', [ProfileController::class, 'update'])->name('profiles.update');
