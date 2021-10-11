@@ -15,7 +15,7 @@ class RecipeController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('show');
+        $this->middleware('auth')->except('show', 'search');
     }
 
     /**
@@ -141,6 +141,9 @@ class RecipeController extends Controller
 
     public function search(Request $request)
     {
-        return $request->get('search');
+        $search = $request->get('search');
+        $recipes = Recipe::where('title', 'like', '%' . $search . '%')->paginate(5);
+        $recipes->appends(['search' => $search]);
+        return view('search.show', compact('recipes', 'search'));
     }
 }
