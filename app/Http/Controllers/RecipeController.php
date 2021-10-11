@@ -138,4 +138,9 @@ class RecipeController extends Controller
         $recipe->delete();
         return redirect()->route('recipes.index');
     }
+
+    public function search(Request $request)
+    {
+        return $request->get('search');
+    }
 }

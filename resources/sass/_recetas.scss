@@ -13,8 +13,17 @@ body {
 
 trix-editor {
     min-height: 400px;
-    height: auto!important;
+    height: auto !important;
 }
-.icon-profile{
+
+.icon-profile {
     width: 20px;
+}
+
+.hero-categories {
+    background-image: linear-gradient(to bottom, rgb(70, 70, 70, 0.4), rgb(53, 53, 53, 0.4)), url('../../public/images/bgrecipes.jpg');
+    height: 30rem;
+    background-size: cover;
+    background-position: top center;
+
 }

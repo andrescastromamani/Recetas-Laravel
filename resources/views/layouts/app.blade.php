@@ -132,6 +132,7 @@
             </div>
         </div>
     </nav>
+    @yield('hero')
     <main class="py-4">
         @yield('content')
     </main>

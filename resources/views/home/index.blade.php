@@ -5,7 +5,18 @@
           integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 @endsection
-
+@section('hero')
+    <div class="hero-categories">
+        <form action="{{route('search.show')}}" class="container h-100">
+            <div class="row h-100 d-flex align-items-center">
+                <div class="col-md-4">
+                    <p class="text-white">Encuentra una receta para tu proxima comidad</p>
+                    <input type="search" placeholder="buscar..." class="form-control" name="search">
+                </div>
+            </div>
+        </form>
+    </div>
+@endsection
 @section('content')
     <div class="container">
         <h2 class="text-uppercase">Ultimas Rectas</h2>
